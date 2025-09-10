@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Frequently Asked Questions 💭</h2>
+
+<ul class="faq-list">
+    <li>
+        <strong>🤔 How does Eva calculate my next period?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Eva analyzes your previous cycle data to predict your next period. The more data you provide, the more accurate our predictions become. We use your cycle length patterns and timing to give you the best estimate possible.
+        </span>
+    </li>
+    
+    <li>
+        <strong>📧 Will Eva notify me before my period?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Yes! You'll receive a gentle email reminder 3 days before your predicted period start date. This gives you time to prepare and plan accordingly.
+        </span>
+    </li>
+    
+    <li>
+        <strong>🔒 Is my data secure?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Absolutely. Your privacy is our top priority. We use secure encryption to protect your personal information and never share your data with third parties. Your cycle information stays completely confidential.
+        </span>
+    </li>
+    
+    <li>
+        <strong>📊 What if my cycle is irregular?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Eva is designed to work with all types of cycles, including irregular ones. Our system adapts to your unique patterns over time and provides predictions based on your personal data, not averages.
+        </span>
+    </li>
+    
+    <li>
+        <strong>📝 Can I add notes to my cycle entries?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Yes! You can add personal notes to each cycle entry. This helps you track symptoms, mood changes, or any other observations that might be helpful for your health journey.
+        </span>
+    </li>
+    
+    <li>
+        <strong>🎯 How accurate are the predictions?</strong><br>
+        <span style="color: #6c757d; margin-top: 0.5rem; display: block;">
+            Prediction accuracy improves with more data. After tracking 3-4 cycles, Eva can provide quite reliable predictions. Remember that every body is different, and predictions are estimates to help you prepare.
+        </span>
+    </li>
+</ul>
+
+<div class="support-info">
+    <h5 style="margin-bottom: 1rem; color: #495057;">🆘 Need Urgent Help?</h5>
+    <p style="margin-bottom: 1rem; color: #6c757d;">
+        For women's health support and emergency assistance, our dedicated helpline is available 24/7.
+    </p>
+    <div style="background: rgba(255,255,255,0.8); padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem;">
+        <p style="margin: 0; color: #495057; font-weight: 600;">
+            📞 Women's Health Support Line: 
+            <b style="color: #e1bee7; font-size: 1.3rem;">+91-98765-43210</b>
+        </p>
+        <small style="color: #6c757d; display: block; margin-top: 0.5rem;">
+            Available 24/7 for health emergencies and support
+        </small>
+    </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #fce4ec, #f3e5f5); padding: 2rem; border-radius: 20px; text-align: center; margin-top: 3rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+    <h5 style="color: #495057; margin-bottom: 1rem;">💌 Have More Questions?</h5>
+    <p style="color: #6c757d; margin-bottom: 1.5rem;">
+        We're here to help! Eva is designed to support your health journey every step of the way.
+    </p>
+    <a href="{{ url_for('dashboard') if session.get('user_id') else url_for('register') }}" 
+       class="btn btn-primary" style="text-decoration: none;">
+        {{ 'Go to Dashboard' if session.get('user_id') else 'Get Started with Eva' }}
+    </a>
+</div>
+{% endblock %}

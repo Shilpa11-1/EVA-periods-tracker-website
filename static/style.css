@@ -1,0 +1,432 @@
+/* Eva Period Tracker - Custom Styles */
+
+/* Root Variables for Consistent Color Scheme */
+:root {
+    --primary-pink: #d63384;
+    --soft-pink: #f8d7da;
+    --accent-pink: #c1366b;
+    --light-lavender: #f3e5f5;
+    --mint-green: #e8f5e8;
+    --peach: #ffeaa7;
+    --cream: #fefefe;
+    --soft-gray: #909395;
+    --text-dark: #323639;
+    --text-light: #6c757d;
+    --border-light: #e9ecef;
+    --shadow: rgba(248, 215, 218, 0.3);
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--soft-pink) 0%, var(--light-lavender) 50%, var(--mint-green) 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Navigation Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 20px var(--shadow);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d63384 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+}
+
+.navbar-brand:hover {
+    color: var(--accent-pink) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: var(--soft-pink);
+    color: var(--text-dark) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-pink);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+/* Container and Layout */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow);
+    padding: 2rem;
+    margin-top: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-pink));
+    border-radius: 2px;
+}
+
+/* Form Styles */
+.form-control {
+    border: 2px solid var(--border-light);
+    border-radius: 15px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 0 0.2rem rgba(225, 190, 231, 0.25);
+    background-color: white;
+    transform: scale(1.02);
+}
+
+.form-control::placeholder {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-pink));
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, var(--accent-pink), var(--primary-pink));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(248, 215, 218, 0.6);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, var(--mint-green), #a8e6a3);
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(168, 230, 163, 0.4);
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #a8e6a3, var(--mint-green));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(168, 230, 163, 0.6);
+    color: var(--text-dark);
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 15px;
+    border: none;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background: linear-gradient(45deg, var(--mint-green), #d4edda);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(45deg, #f8d7da, #f5c6cb);
+    color: #721c24;
+}
+
+/* Table Styles */
+.table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.table thead th {
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-pink));
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.table tbody tr:hover {
+    background-color: var(--soft-pink);
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Dashboard Specific Styles */
+.dashboard-welcome {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.next-period-card {
+    background: linear-gradient(135deg, var(--peach), var(--soft-pink));
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(255, 234, 167, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.next-period-card strong {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Styles */
+.faq-list {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-list li {
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--accent-pink);
+    transition: transform 0.3s ease;
+}
+
+.faq-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.faq-list strong {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.support-info {
+    background: linear-gradient(45deg, var(--light-lavender), var(--mint-green));
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.support-info b {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+}
+
+/* Home Page Styles */
+.home-hero {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.home-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home-hero p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .home-hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    .next-period-card {
+        padding: 1.5rem;
+    }
+    
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-list li:hover {
+        transform: translateY(-5px);
+    }
+    
+    .home-hero h2 {
+        font-size: 2rem;
+    }
+    
+    .home-hero p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.6s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--soft-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary-pink), var(--accent-pink));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, var(--accent-pink), var(--primary-pink));
+}

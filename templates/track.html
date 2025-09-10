@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto;">
+    <h2>Track New Period 📝</h2>
+    
+    <div style="background: linear-gradient(135deg, #c8a2c8, #e6d7ff); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; text-align: center;">
+        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌸</div>
+        <p style="color: #2d3436; margin: 0; font-weight: 500;">
+            Log your cycle dates and notes to help Eva provide personalized insights and better predictions.
+        </p>
+    </div>
+
+    <form method="post" style="background: rgba(255,251,240,0.8); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+        <div style="margin-bottom: 1.5rem;">
+            <label for="start" style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                <span style="margin-right: 0.5rem;">📅</span>
+                <strong>Period Start Date:</strong>
+            </label>
+            <input name="start" id="start" type="date" class="form-control" required 
+                   style="font-size: 1.1rem; padding: 1rem;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <label for="end" style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                <span style="margin-right: 0.5rem;">🏁</span>
+                <strong>Period End Date:</strong>
+            </label>
+            <input name="end" id="end" type="date" class="form-control" required 
+                   style="font-size: 1.1rem; padding: 1rem;">
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <label for="note" style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                <span style="margin-right: 0.5rem;">📝</span>
+                <strong>Notes (Optional):</strong>
+            </label>
+            <textarea name="note" id="note" class="form-control" rows="4" 
+                      placeholder="Add any symptoms, mood changes, or observations you'd like to track..."
+                      style="font-size: 1rem; padding: 1rem; resize: vertical;"></textarea>
+            <small style="color: #636e72; margin-top: 0.5rem; display: block;">
+                💡 Tip: Notes help you identify patterns and share better information with your healthcare provider.
+            </small>
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success" style="padding: 1rem 3rem; font-size: 1.1rem;">
+                💾 Save Cycle Data
+            </button>
+        </div>
+    </form>
+
+    <div style="background: linear-gradient(135deg, #a8e6cf, #dcedc1); padding: 1.5rem; border-radius: 15px; margin-top: 2rem; text-align: center;">
+        <h6 style="color: #2d3436; margin-bottom: 1rem;">🎯 Quick Tips for Accurate Tracking</h6>
+        <ul style="color: #636e72; text-align: left; list-style: none; padding: 0; max-width: 400px; margin: 0 auto;">
+            <li style="margin-bottom: 0.5rem;">✅ Count the first day of flow as your start date</li>
+            <li style="margin-bottom: 0.5rem;">✅ Include the last day of any spotting as your end date</li>
+            <li style="margin-bottom: 0.5rem;">✅ Track consistently for better predictions</li>
+            <li>✅ Note any unusual symptoms or changes</li>
+        </ul>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #ffcc99, #ffe4cc); padding: 1.5rem; border-radius: 15px; margin-top: 2rem;">
+        <h6 style="color: #2d3436; margin-bottom: 1rem; text-align: center;">🌟 What to Expect After Tracking</h6>
+        <div style="color: #636e72; font-size: 0.95rem;">
+            <p style="margin-bottom: 0.8rem;">
+                <strong>📊 Personalized Insights:</strong> Eva will analyze your cycle length and provide helpful tips based on your data.
+            </p>
+            <p style="margin-bottom: 0.8rem;">
+                <strong>🔮 Better Predictions:</strong> More data means more accurate predictions for your next period.
+            </p>
+            <p style="margin: 0;">
+                <strong>📈 Pattern Recognition:</strong> Track 3+ cycles to see your unique patterns and trends.
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="{{ url_for('dashboard') }}" style="color: #636e72; text-decoration: none; font-weight: 500;">
+            ← Back to Dashboard
+        </a>
+    </div>
+</div>
+
+<script>
+    // Set max date to today for both inputs
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('start').setAttribute('max', today);
+    document.getElementById('end').setAttribute('max', today);
+    
+    // Ensure end date is not before start date
+    document.getElementById('start').addEventListener('change', function() {
+        const startDate = this.value;
+        const endInput = document.getElementById('end');
+        endInput.setAttribute('min', startDate);
+        if (endInput.value && endInput.value < startDate) {
+            endInput.value = '';
+        }
+    });
+</script>
+{% endblock %}

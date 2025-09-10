@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="home-hero">
+    <h2>Welcome to Eva ✨</h2>
+    <p>Your personal period tracker for a healthier, more informed you. Track your menstrual cycle, stay prepared, and get gentle reminders when you need them most.</p>
+    
+    <div style="margin-top: 3rem;">
+        {% if not session.get('user_id') %}
+        <a href="{{ url_for('register') }}" class="btn btn-primary me-3" style="text-decoration: none;">
+            Get Started Free
+        </a>
+        <a href="{{ url_for('guest') }}" class="btn btn-success me-3" style="text-decoration: none;">
+            Try as Guest (30 Days)
+        </a>
+        <a href="{{ url_for('login') }}" class="btn" style="text-decoration: none; background: linear-gradient(45deg, #c8a2c8, #e6d7ff); color: #2d3436;">
+            Login
+        </a>
+        {% else %}
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary me-3" style="text-decoration: none;">
+            View Dashboard
+        </a>
+        <a href="{{ url_for('track') }}" class="btn btn-success" style="text-decoration: none;">
+            Track Period
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
+    <div style="background: linear-gradient(135deg, #c8a2c8, #e6d7ff); padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+        <h5 style="color: #2d3436; margin-bottom: 1rem;">Easy Tracking</h5>
+        <p style="color: #636e72;">Simple and intuitive interface to log your periods with personalized insights and advice.</p>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, #a8e6cf, #dcedc1); padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🔮</div>
+        <h5 style="color: #2d3436; margin-bottom: 1rem;">Smart Predictions</h5>
+        <p style="color: #636e72;">Get accurate predictions for your next period based on your personal cycle data and patterns.</p>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, #ffcc99, #ffe4cc); padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+        <h5 style="color: #2d3436; margin-bottom: 1rem;">Gentle Reminders</h5>
+        <p style="color: #636e72;">Receive thoughtful email reminders 3 days before your predicted period (registered users).</p>
+    </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #ff6b9d, #ffb3d1); padding: 3rem; border-radius: 20px; text-align: center; margin-top: 4rem; box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3); color: white;">
+    <h4 style="color: white; margin-bottom: 1.5rem;">🌸 Your Health, Your Way</h4>
+    <p style="color: white; max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.8; opacity: 0.95;">
+        Eva understands that every woman's cycle is unique. Our platform provides personalized insights while keeping your data completely private and secure. Take control of your reproductive health with confidence and peace of mind.
+    </p>
+    <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(10px);">
+        <h6 style="color: white; margin-bottom: 1rem;"> Try Eva Risk-Free!</h6>
+        <p style="color: white; margin-bottom: 1.5rem; opacity: 0.9;">
+            Start with our 30-day guest mode - full features, data persistence, no signup required!
+        </p>
+        {% if not session.get('user_id') %}
+        <a href="{{ url_for('guest') }}" class="btn" style="background: white; color: #ff6b9d; text-decoration: none; font-weight: 600;">
+            Start Guest Trial
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+    <div style="background: rgba(255,251,240,0.8); padding: 1.5rem; border-radius: 15px; text-align: center; border-left: 4px solid #ff6b9d;">
+        <h6 style="color: #2d3436; margin-bottom: 0.5rem;">🔒 Private & Secure</h6>
+        <p style="color: #636e72; font-size: 0.9rem; margin: 0;">Your data is encrypted and never shared with third parties.</p>
+    </div>
+    
+    <div style="background: rgba(255,251,240,0.8); padding: 1.5rem; border-radius: 15px; text-align: center; border-left: 4px solid #a8e6cf;">
+        <h6 style="color: #2d3436; margin-bottom: 0.5rem;">📊 Personalized</h6>
+        <p style="color: #636e72; font-size: 0.9rem; margin: 0;">Insights and advice tailored to your unique cycle patterns.</p>
+    </div>
+    
+    <div style="background: rgba(255,251,240,0.8); padding: 1.5rem; border-radius: 15px; text-align: center; border-left: 4px solid #c8a2c8;">
+        <h6 style="color: #2d3436; margin-bottom: 0.5rem;">💝 Always Free</h6>
+        <p style="color: #636e72; font-size: 0.9rem; margin: 0;">Core features are completely free. No premium subscriptions needed.</p>
+    </div>
+    
+    <div style="background: rgba(255,251,240,0.8); padding: 1.5rem; border-radius: 15px; text-align: center; border-left: 4px solid #ffcc99;">
+        <h6 style="color: #2d3436; margin-bottom: 0.5rem;">🌍 Accessible</h6>
+        <p style="color: #636e72; font-size: 0.9rem; margin: 0;">Works on all devices with guest mode for instant access.</p>
+    </div>
+</div>
+{% endblock %}
